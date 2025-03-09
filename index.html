@@ -1,0 +1,1470 @@
+<!-- Google Fonts Link -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  /* TOPIC: Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    text-align: left;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* TOPIC: Button Styles */
+  .btn {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 8, 68, 0.3);
+  }
+  
+  /* TOPIC: Header Styles */
+  header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+  }
+  
+  header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 10px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo span {
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 5px;
+  }
+  
+  .logo i {
+    margin-right: 10px;
+    color: #ff0844;
+    font-size: 30px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  nav ul li a:hover {
+    color: #ff0844;
+  }
+  
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box input {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+  }
+
+  .search-box input:focus {
+    width: 300px;
+  }
+
+  .search-box i {
+    position: absolute;
+    right: 10px;
+    color: #aaa;
+  }
+
+  /* TOPIC: Hero Section Styles */
+  .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('av.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+    animation: moveBackground 20s linear infinite;
+  }
+
+  .hero.fade-out {
+    opacity: 0;
+  }
+
+  .hero.fade-in {
+    opacity: 1;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 8, 68, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  }
+  
+  .hero-content {
+    max-width: 700px;
+    padding: 0 20px;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ffffff, #ffb199);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .hero-box {
+    margin-top: 40px;
+    padding: 20px 40px;
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+    border-radius: 10px;
+    text-align: center;
+  }
+  .hero-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #ffffff;
+    color: #ff0844;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 8, 68, 0.3);
+  }
+  
+  /* TOPIC: Featured Section Styles */
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .section-title h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+  }
+  
+  .featured {
+    padding: 100px 0;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .product-card {
+    background-color: #111111;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 8, 68, 0.2);
+  }
+  
+  .product-image {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+  
+  .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  
+  .product-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .product-details {
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .product-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .product-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff0844;
+    margin-bottom: 15px;
+  }
+  
+  .product-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .product-rating {
+    color: #ffb199;
+  }
+  
+  /* TOPIC: Categories Section Styles */
+  .categories {
+    padding: 100px 0;
+    background-color: #0d0d0d;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .category-card {
+    position: relative;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .category-card:hover img {
+    transform: scale(1.1);
+  }
+  
+  .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+  }
+  
+  .category-card:hover .category-overlay {
+    background: linear-gradient(to top, rgba(255, 8, 68, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  }
+  
+  .category-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .category-count {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* TOPIC: Special Offers Section Styles */
+  .special-offers {
+    padding: 100px 0;
+  }
+  
+  .offer-banner {
+    background: linear-gradient(45deg, #150310, #2d0a20);
+    border-radius: 10px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+  
+  .offer-banner::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 8, 68, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+  }
+  
+  .offer-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .offer-title {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .offer-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+  
+  /* TOPIC: About Section Styles */
+  .about {
+    padding: 100px 0;
+    background-color: #0d0d0d;
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .about-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .about-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* TOPIC: Footer Styles */
+  footer {
+    background-color: #0a0a0a;
+    padding: 70px 0 20px;
+    position: relative;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+  }
+  
+  .footer-column ul {
+    list-style: none;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul li a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #ff0844;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    background: linear-gradient(45deg, #ff0844, #ffb199);
+    transform: translateY(-3px);
+  }
+  
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    color: #777;
+    font-size: 14px;
+  }
+  
+  /* TOPIC: Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes moveBackground {
+    0% { background-position: center; }
+    50% { background-position: center top; }
+    100% { background-position: center; }
+  }
+  
+  /* TOPIC: Responsive Styles */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+    
+    nav ul {
+      position: fixed;
+      top: 70px;
+      left: -100%;
+      width: 100%;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 20px 0;
+      transition: left 0.3s ease;
+    }
+    
+    nav ul.active {
+      left: 0;
+    }
+    
+    nav ul li {
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 40px;
+    }
+    
+    .about-content {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<!-- TOPIC: Header Section -->
+<header id="headerEl">
+  <div class="container header-content">
+    <div class="logo">
+      <i class="fas fa-dragon"></i>THE DRAGO<span>TEAM</span>
+    </div>
+    <div class="menu-toggle" id="menuToggleBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav>
+      <ul id="navMenuEl">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#tv-series">TV Series</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <i class="fas fa-search"></i>
+    </div>
+  </div>
+</header>
+
+<!-- TOPIC: Hero Section -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <h1>Premium Movies & TV Series Collection</h1>
+    <p>Discover the best entertainment collection in Sri Lanka with premium quality movies and TV series at affordable prices.</p>
+    <div class="hero-box">
+      <h2>THE DRAGO TEAM GAME STORE</h2>
+      <a href="Game store.html" class="hero-btn">Open Store</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: Featured Movies Section -->
+<section class="featured" id="movies">
+  <div class="container">
+    <div class="section-title">
+      <h2>Featured Movies</h2>
+    </div>
+    <div class="product-grid">
+      <!-- Movie 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="dune 2.jpg" alt="Dune: Part Two">
+          <div class="product-overlay"></div>
+          <div class="product-tag">New Release</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Dune: Part Two</h3>
+          <div class="product-info">
+            <span>2024 • Action/Sci-Fi</span>
+            <span>166 min</span>
+          </div>
+         <div class="product-price">LKR 100.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Dune: Part Two%20for%20LKR%20100.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Movie 2 -->
+     <div class="product-card">
+        <div class="product-image">
+          <img src="op.jpg" alt="Oppenheimer">
+          <div class="product-overlay"></div>
+          <div class="product-tag">Trending</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Oppenheimer</h3>
+          <div class="product-info">
+            <span>2023 • Biography/Drama</span>
+            <span>180 min</span>
+          </div>
+          <div class="product-price">LKR 100.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Oppenheimer%20for%20LKR%20100.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- Movie 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="bm.jpg" alt="The Batman">
+          <div class="product-overlay"></div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">The Batman</h3>
+          <div class="product-info">
+            <span>2022 • Action/Crime</span>
+            <span>176 min</span>
+          </div>
+            <div class="product-price">LKR 100.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20The Batman%20for%20LKR%20100.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Movie 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="ev.jpg" alt="Everything Everywhere All at Once">
+          <div class="product-overlay"></div>
+          <div class="product-tag">Award Winner</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Everything Everywhere All at Once</h3>
+          <div class="product-info">
+            <span>2022 • Sci-Fi/Adventure</span>
+            <span>139 min</span>
+          </div>
+          <div class="product-price">LKR 100.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Everything Everywhere All at Once%20for%20LKR%20100.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div style="text-align:center; margin-top:40px;">
+      <a href="view-all-movies.html" class="btn">View All Movies</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: TV Series Section -->
+<section class="featured" id="tv-series" style="background-color:#0d0d0d;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Popular TV Series</h2>
+    </div>
+    <div class="product-grid">
+      <!-- Series 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="hod.jpg" alt="House of the Dragon">
+          <div class="product-overlay"></div>
+          <div class="product-tag">Complete Series</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">House of the Dragon</h3>
+          <div class="product-info">
+            <span>2022 • Fantasy/Drama</span>
+            <span>10 Episodes</span>
+          </div>
+          <div class="product-price">LKR 200.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20House Of Dragon%20for%20LKR%20200.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Series 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="tlou.jpg" alt="The Last of Us">
+          <div class="product-overlay"></div>
+          <div class="product-tag">Complete Season</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">The Last of Us</h3>
+          <div class="product-info">
+            <span>2023 • Drama/Horror</span>
+            <span>9 Episodes</span>
+          </div>
+          <div class="product-price">LKR 100.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20The Last Of Us%20for%20LKR%20100.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Series 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="st.jpg" alt="Stranger Things">
+          <div class="product-overlay"></div>
+          <div class="product-tag">Complete Series</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Stranger Things</h3>
+          <div class="product-info">
+            <span>2016-2022 • Sci-Fi/Horror</span>
+            <span>4 Seasons</span>
+          </div>
+          <div class="product-price">LKR 400.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Stranger Things%20for%20LKR%20400.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Series 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="bb.jpg" alt="Breaking Bad">
+          <div class="product-overlay"></div>
+          <div class="product-tag">Complete Series</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Breaking Bad</h3>
+          <div class="product-info">
+            <span>2008-2013 • Crime/Drama</span>
+            <span>5 Seasons</span>
+          </div>
+          <div class="product-price">LKR 500.00</div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Breaking Bad%20for%20LKR%20500.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align:center; margin-top:40px;">
+      <a href="view-all-tv-series.html" class="btn">View All TV Series</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: Categories Section -->
+<section class="categories">
+  <div class="container">
+    <div class="section-title">
+      <h2>Browse Categories</h2>
+    </div>
+    <div class="category-grid">
+      <!-- Category 1 -->
+      <div class="category-card">
+        <img src="action.jpg" alt="Action">
+        <div class="category-overlay">
+          <h3 class="category-title">Action</h3>
+          <p class="category-count">124 Titles</p>
+        </div>
+      </div>
+      
+      <!-- Category 2 -->
+      <div class="category-card">
+        <img src="scifi.jpg" alt="Sci-Fi">
+        <div class="category-overlay">
+          <h3 class="category-title">Sci-Fi</h3>
+          <p class="category-count">87 Titles</p>
+        </div>
+      </div>
+      
+      <!-- Category 3 -->
+      <div class="category-card">
+        <img src="horror.jpg" alt="Horror">
+        <div class="category-overlay">
+          <h3 class="category-title">Horror</h3>
+          <p class="category-count">64 Titles</p>
+        </div>
+      </div>
+      
+      <!-- Category 4 -->
+      <div class="category-card">
+        <img src="comedy.jpg" alt="Comedy">
+        <div class="category-overlay">
+          <h3 class="category-title">Comedy</h3>
+          <p class="category-count">112 Titles</p>
+        </div>
+      </div>
+      
+      <!-- Category 5 -->
+      <div class="category-card">
+        <img src="animation.jpg" alt="Animation">
+        <div class="category-overlay">
+          <h3 class="category-title">Animation</h3>
+          <p class="category-count">95 Titles</p>
+        </div>
+      </div>
+      
+      <!-- Category 6 -->
+      <div class="category-card">
+        <img src="drama.jpg" alt="Drama">
+        <div class="category-overlay">
+          <h3 class="category-title">Drama</h3>
+          <p class="category-count">145 Titles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: Special Offers Section -->
+<section class="special-offers" id="offers">
+  <div class="container">
+    <div class="section-title">
+      <h2>Special Offers</h2>
+    </div>
+    
+    <div class="offer-banner">
+      <div class="offer-content">
+        <h2 class="offer-title">Bundle Deal</h2>
+        <p class="offer-description">Get 3 movies for the price of 2! Mix and match from our entire collection. Limited time offer until stocks last.</p>
+        <button class="btn">Shop Bundle Deal</button>
+      </div>
+    </div>
+    
+    <div class="product-grid">
+      <!-- Offer 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="johnwick.jpg" alt="John Wick Movie Series">
+          <div class="product-overlay"></div>
+          <div class="product-tag">50% OFF</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">John Wick Movie Series</h3>
+          <div class="product-info">
+            <span>Box Set • 4 Movies</span>
+            <span>Limited Edition</span>
+          </div>
+          <div class="product-price">
+            <span style="text-decoration:line-through; color:#777; font-size:16px; margin-right:10px;">LKR 400.00</span>
+            LKR 200.00
+          </div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20John Wick Movie Series%20for%20LKR%20200.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Offer 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="jp.jpg" alt="jurassic park movies">
+          <div class="product-overlay"></div>
+          <div class="product-tag">30% OFF</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Jurassic park Movies</h3>
+          <div class="product-info">
+            <span>Extended Edition • 6 Movies</span>
+            <span>720P</span>
+          </div>
+          <div class="product-price">
+            <span style="text-decoration:line-through; color:#777; font-size:16px; margin-right:10px;">LKR 600.00</span>
+            LKR 420.00
+          </div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Jurassic park Movie Series%20for%20LKR%20420.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Offer 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="got.jpg" alt="Game of Thrones">
+          <div class="product-overlay"></div>
+          <div class="product-tag">25% OFF</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Game of Thrones</h3>
+          <div class="product-info">
+            <span>Complete Series • 8 Seasons</span>
+            <span>Collector's Edition</span>
+          </div>
+          <div class="product-price">
+            <span style="text-decoration:line-through; color:#777; font-size:16px; margin-right:10px;">LKR 600.00</span>
+            LKR 450.00
+          </div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Game of Thrones Series%20for%20LKR%20450.00" 
+               class="btn" 
+               style="padding:8px 15px; font-size:14px;" 
+               target="_blank">
+               Buy Now
+            </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Offer 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="fastx.jpg" alt="Fast & Furious">
+          <div class="product-overlay"></div>
+          <div class="product-tag">40% OFF</div>
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Fast & Furious 1-9</h3>
+          <div class="product-info">
+            <span>Complete Collection • 9 Movies</span>
+            <span>Blu-ray</span>
+          </div>
+          <div class="product-price">
+            <span style="text-decoration:line-through; color:#777; font-size:16px; margin-right:10px;">LKR 900.00</span>
+            LKR 540.00
+          </div>
+          <div class="product-actions">
+            <a href="https://wa.me/94705272056?text=I%20want%20to%20buy%20Fast & Furious 1-9%20for%20LKR%20540.00" 
+            class="btn" 
+            style="padding:8px 15px; font-size:14px;" 
+            target="_blank">
+            Buy Now
+         </a>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: About Section -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="drago team .jpg" alt="The Drago Team Store">
+      </div>
+      <div class="about-text">
+        <h2>About THE DRAGO TEAM</h2>
+        <p>Founded in 2020, THE DRAGO TEAM is Sri Lanka's premier destination for high-quality movies and TV series. We take pride in offering authentic, premium quality entertainment media at competitive prices.</p>
+        <p>Our collection includes the latest blockbusters, timeless classics, and the most popular TV series from around the world. We ensure that every product meets our strict quality standards before it reaches our customers.</p>
+        <p>With island-wide delivery and exceptional customer service, we've built a reputation as the most trusted entertainment media retailer in Sri Lanka.</p>
+        <button class="btn">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: Contact Section -->
+<section class="special-offers" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
+    <div style="display:flex; gap:30px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:300px;">
+        <form id="contactFormEl" style="background:#111; padding:30px; border-radius:10px; text-align:left;">
+          <div style="margin-bottom:20px;">
+            <label for="nameInput" style="display:block; margin-bottom:5px; font-weight:500;">Your Name</label>
+            <input type="text" id="nameInput" style="width:100%; padding:12px; background:#222; border:none; border-radius:5px; color:#fff;">
+          </div>
+          <div style="margin-bottom:20px;">
+            <label for="emailInput" style="display:block; margin-bottom:5px; font-weight:500;">Email Address</label>
+            <input type="email" id="emailInput" style="width:100%; padding:12px; background:#222; border:none; border-radius:5px; color:#fff;">
+          </div>
+          <div style="margin-bottom:20px;">
+            <label for="subjectInput" style="display:block; margin-bottom:5px; font-weight:500;">Subject</label>
+            <input type="text" id="subjectInput" style="width:100%; padding:12px; background:#222; border:none; border-radius:5px; color:#fff;">
+          </div>
+          <div style="margin-bottom:20px;">
+            <label for="messageInput" style="display:block; margin-bottom:5px; font-weight:500;">Your Message</label>
+            <textarea id="messageInput" rows="5" style="width:100%; padding:12px; background:#222; border:none; border-radius:5px; color:#fff; resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%;">Send Message</button>
+        </form>
+      </div>
+      <div style="flex:1; min-width:300px;">
+        <div style="background:#111; padding:30px; border-radius:10px; height:100%;">
+          <h3 style="margin-bottom:20px; font-size:24px;">Get In Touch</h3>
+          <p style="margin-bottom:30px; line-height:1.6;">Have questions about our products or services? Contact us using the form or reach out directly through the information below.</p>
+          
+          <div style="margin-bottom:20px; display:flex; align-items:center;">
+            <i class="fas fa-map-marker-alt" style="font-size:20px; color:#ff0844; margin-right:15px; width:20px;"></i>
+            <div>
+              <h4 style="font-size:18px; margin-bottom:5px;">Our Location</h4>
+              <p>No.270, Mandavila Road, Piliyandala</p>
+            </div>
+          </div>
+          
+          <div style="margin-bottom:20px; display:flex; align-items:center;">
+            <i class="fas fa-phone-alt" style="font-size:20px; color:#ff0844; margin-right:15px; width:20px;"></i>
+            <div>
+              <h4 style="font-size:18px; margin-bottom:5px;">Call Us</h4>
+              <p>+94 705272056</p>
+            </div>
+          </div>
+          
+          <div style="margin-bottom:20px; display:flex; align-items:center;">
+            <i class="fas fa-envelope" style="font-size:20px; color:#ff0844; margin-right:15px; width:20px;"></i>
+            <div>
+              <h4 style="font-size:18px; margin-bottom:5px;">Email Us</h4>
+              <p>thedragoteam51@gmail.com</p>
+            </div>
+          </div>
+          
+          <div style="margin-top:30px;">
+            <h4 style="font-size:18px; margin-bottom:15px;">Follow Us</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC: Footer Section -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <div class="logo" style="margin-bottom:20px;">
+          <i class="fas fa-dragon"></i>THE DRAGO<span>TEAM</span>
+        </div>
+        <p style="color:#aaa; line-height:1.6; margin-bottom:20px;">Your premier destination for movies and TV series in Sri Lanka. Quality entertainment.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#tv-series">TV Series</a></li>
+          <li><a href="#offers">Special Offers</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Action & Adventure</a></li>
+          <li><a href="#">Comedy</a></li>
+          <li><a href="#">Drama</a></li>
+          <li><a href="#">Sci-Fi & Fantasy</a></li>
+          <li><a href="#">Horror</a></li>
+          <li><a href="#">Animation</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">My Account</a></li>
+    
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 THE DRAGO TEAM. All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#ff0844;"></i> in Sri Lanka</p>
+    </div>
+  </div>
+</footer>
+
+<!-- TOPIC: JavaScript -->
+<script>
+  // Header scroll effect
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      headerEl.classList.add('scrolled');
+    } else {
+      headerEl.classList.remove('scrolled');
+    }
+  });
+  
+  // Mobile menu toggle
+  menuToggleBtn.addEventListener('click', function() {
+    navMenuEl.classList.toggle('active');
+    menuToggleBtn.innerHTML = navMenuEl.classList.contains('active') ? 
+      '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+  });
+  
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      if (navMenuEl.classList.contains('active')) {
+        navMenuEl.classList.remove('active');
+        menuToggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+      
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  
+  // Contact form submission
+  contactFormEl.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Simple validation
+    let name = nameInput.value.trim();
+    let email = emailInput.value.trim();
+    let subject = subjectInput.value.trim();
+    let message = messageInput.value.trim();
+    
+    if (!name || !email || !subject || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+    
+    // Simulate form submission
+    let submitBtn = contactFormEl.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending...';
+    
+    setTimeout(function() {
+      alert('Thank you for your message! We will get back to you soon.');
+      contactFormEl.reset();
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Message';
+    }, 1500);
+  });
+  
+  // Animation for products on scroll
+  let animateOnScroll = function() {
+    let productCards = document.querySelectorAll('.product-card');
+    let categoryCards = document.querySelectorAll('.category-card');
+    let windowHeight = window.innerHeight;
+    
+    [...productCards, ...categoryCards].forEach(card => {
+      let cardPosition = card.getBoundingClientRect().top;
+      
+      if (cardPosition < windowHeight - 100) {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }
+    });
+  };
+  
+  // Initialize animations
+  window.addEventListener('load', function() {
+    let productCards = document.querySelectorAll('.product-card');
+    let categoryCards = document.querySelectorAll('.category-card');
+    
+    [...productCards, ...categoryCards].forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    animateOnScroll();
+  });
+  
+  window.addEventListener('scroll', animateOnScroll);
+
+  // Search functionality
+  document.getElementById("searchInput").addEventListener("keyup", function() {
+    let filter = this.value.toLowerCase();
+    let items = document.querySelectorAll(".product-card, .category-card");
+
+    items.forEach(function(item) {
+      let text = item.textContent.toLowerCase();
+      item.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+
+  // Change hero background image every 5 seconds with fade animation
+  const heroSection = document.querySelector('.hero');
+  const images = [
+    'j.jpg',
+    'v.jpg',
+    'f.jpg',
+    'h.jpg',
+    'hp.jpg'
+  ];
+  let currentImageIndex = 0;
+
+  setInterval(() => {
+    heroSection.classList.add('fade-out');
+    setTimeout(() => {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${images[currentImageIndex]}')`;
+      heroSection.classList.remove('fade-out');
+      heroSection.classList.add('fade-in');
+    }, 1000);
+  }, 5000);
+</script>
